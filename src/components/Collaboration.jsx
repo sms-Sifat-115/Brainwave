@@ -1,10 +1,19 @@
+import { useState } from "react";
 import { brainwaveSymbol, check } from "../assets";
 import { collabApps, collabContent, collabText } from "../constants";
 import Button from "./Button";
 import Section from "./Section";
 import { LeftCurve, RightCurve } from "./design/Collaboration";
+import styles from "./Collaboration.module.css";
 
 const Collaboration = () => {
+  const [rotate, setRotate] = useState(false);
+
+  const handleButtonClick = () => {
+    setRotate(true);
+    setTimeout(() => setRotate(false), 20000); // Stop rotation after 30 seconds
+  };
+
   return (
     <Section crosses>
       <div className="container lg:flex">
@@ -27,7 +36,7 @@ const Collaboration = () => {
             ))}
           </ul>
 
-          <Button>Try it now</Button>
+          <Button onClick={handleButtonClick}>Try it now</Button>
         </div>
 
         <div className="lg:ml-auto xl:w-[38rem] mt-4">
@@ -35,7 +44,11 @@ const Collaboration = () => {
             {collabText}
           </p>
 
-          <div className="relative left-1/2 flex w-[22rem] aspect-square border border-n-6 rounded-full -translate-x-1/2 scale:75 md:scale-100">
+          <div
+            className={`relative left-1/2 flex w-[22rem] aspect-square border border-n-6 rounded-full -translate-x-1/2 scale:75 md:scale-100 parent-container ${
+              rotate ? styles["rotate-animation"] : ""
+            }`}
+          >
             <div className="flex w-60 aspect-square m-auto border border-n-6 rounded-full">
               <div className="w-[6rem] aspect-square m-auto p-[0.2rem] bg-conic-gradient rounded-full">
                 <div className="flex items-center justify-center w-full h-full bg-n-8 rounded-full">

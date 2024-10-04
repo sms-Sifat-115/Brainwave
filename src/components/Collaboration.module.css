@@ -1,0 +1,21 @@
+.rotate-animation {
+    animation: rotate 20s linear infinite;
+    transform-origin: center;
+    margin-left: -11rem;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.parent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
