@@ -19,7 +19,7 @@ const Benefits = () => {
             <div
               className="relative p-2 m-2 bg-[length:100%_100%] md:max-w-[24rem]"
               style={{
-                background: `url(${item.backgroundUrl})`,
+                backgroundImage: `url(${item.backgroundUrl})`,
               }}
               key={item.id}
             >
